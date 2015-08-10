@@ -1,0 +1,13 @@
+<div class="col-sm-6 col-sm-offset-3">
+  <h4 class='text-center'><%= @users.name.capitalize %></h5>
+  <div class='text-right'>
+    <%= link_to "New Post", new_user_post_path(@user) %>
+  </div>
+  <ul class="list-group">
+    <% @user.posts.each do |r| %>
+      <li class="list-group-item">
+        <%= r.gif_url %>
+      </li>
+    <% end %>
+  </ul>
+</div>

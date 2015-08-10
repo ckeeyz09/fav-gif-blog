@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gif_url: MyString
+  user: MyString
+
+two:
+  gif_url: MyString
+  user: MyString

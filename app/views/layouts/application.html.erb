@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Landlord</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <script src="http://cdn.jsdelivr.net/jquery.validation/1.14.0/jquery.validate.min.js"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div style="background-image:url(<%= image_path 'ladies.jpg' %>);height:300px; width:100%;">
+  <div class='jumbotron'>
+    <div class="container">
+      <h1>Favorite Gifs Blog</h1>
+    </div>
+  </div>
+</div>
+  <%= yield %>
+</body>
+</html>
