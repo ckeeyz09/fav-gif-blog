@@ -1,17 +1,26 @@
 class UsersController < ApplicationController
   def new
+    if current_user
+      redirect_to profile_path
+    else
     @user = User.new
+    end
   end
 
   def create
-    # create a user with these params
-    @user = User.new(user_params)
-    # save the user
-    if @user.save
-      # redirect to users#show
-      redirect_to new_user_path(@user)
+    # redirect user if already logged in
+    if current_user
+      redirect_to profile_path
     else
-      redirect_to :back
+      user = User.new(user_params)
+      if user.save
+        session[:user_id] = user.id
+        flash[:notice] = "Successfully signed up."
+        redirect_to profile_path
+      else
+        flash[:error] = user.errors.full_messages.join(', ')
+        redirect_to signup_path
+      end
     end
   end
 

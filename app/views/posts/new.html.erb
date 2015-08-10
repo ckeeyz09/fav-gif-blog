@@ -1,2 +1,10 @@
-<h1>Post#new</h1>
-<p>Find me in app/views/post/new.html.erb</p>
+<div class="col-sm-4 col-sm-offset-4">
+  <legend>Post your gif url</legend>
+  <%= form_for [@user, @post] do |f| %>
+    <h5><%= @users.name.capitalize %></h5>
+    <%= f.label :gif_url %>
+    <%= f.text_field :gif_url, class:"form-control", required: true %>
+    <br>
+    <%= f.submit "Post My GIF!", class:"btn btn-primary" %>
+  <% end %>
+</div>

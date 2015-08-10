@@ -4,17 +4,18 @@ class SessionsController < ApplicationController
     if current_user
       redirect_to profile_path
     else
+      @session = Session.new
       render :new
     end
   end
 
   def create
-    @user = User.find_by_email(user_params[:email])
+    user = User.find_by_email(user_params[:email])
     # if user exists AND password entered is correct
-    if @user && @user.authenticate(user_params[:password_digest])
+    if user && user.authenticate(user_params[:password])
       # save user id to session to keep them logged in
       # when they navigate around our site
-      session[:user_id] = @user.id
+      session[:user_id] = user.id
       flash[:notice] = "Successfully logged in."
       redirect_to profile_path
     else
